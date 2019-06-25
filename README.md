@@ -1,2 +1,2 @@
 # Location
-Work with MapKit and CLLocationManager (Swift 5.0+)
+Work with MapKit (Swift 5.0+)
