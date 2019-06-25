@@ -54,14 +54,38 @@
 		5856E25022C15B0C004F9BC4 /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				5856E25122C15B0C004F9BC4 /* AppDelegate.swift */,
-				5856E25322C15B0C004F9BC4 /* ViewController.swift */,
-				5856E25522C15B0C004F9BC4 /* Main.storyboard */,
-				5856E25822C15B0E004F9BC4 /* Assets.xcassets */,
-				5856E25A22C15B0E004F9BC4 /* LaunchScreen.storyboard */,
-				5856E25D22C15B0E004F9BC4 /* Info.plist */,
+				587B8FD822C2B947001B9C44 /* ViewControllers */,
+				587B8FDA22C2B998001B9C44 /* Storyboards */,
+				587B8FD922C2B958001B9C44 /* Support files */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		587B8FD822C2B947001B9C44 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5856E25322C15B0C004F9BC4 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		587B8FD922C2B958001B9C44 /* Support files */ = {
+			isa = PBXGroup;
+			children = (
+				5856E25822C15B0E004F9BC4 /* Assets.xcassets */,
+				5856E25122C15B0C004F9BC4 /* AppDelegate.swift */,
+				5856E25D22C15B0E004F9BC4 /* Info.plist */,
+			);
+			path = "Support files";
+			sourceTree = "<group>";
+		};
+		587B8FDA22C2B998001B9C44 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5856E25522C15B0C004F9BC4 /* Main.storyboard */,
+				5856E25A22C15B0E004F9BC4 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +308,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 45JNFF5WM9;
-				INFOPLIST_FILE = Location/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Location/Support files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +326,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 45JNFF5WM9;
-				INFOPLIST_FILE = Location/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Location/Support files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
