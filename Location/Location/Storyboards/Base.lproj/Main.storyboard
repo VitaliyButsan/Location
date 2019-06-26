@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,26 +15,49 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapScreen" customModule="Location" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oQV-uQ-16f">
-                                <rect key="frame" x="0.0" y="-24" width="600" height="658"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="s7l-Xr-APT"/>
                                 </connections>
                             </mapView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="itg-NG-zda">
+                                <rect key="frame" x="187" y="391" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Uya-5K-9so"/>
+                                    <constraint firstAttribute="width" constant="40" id="gpJ-o7-gdq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tM7-uI-A9Y">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="byg-uo-DKK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oQV-uQ-16f" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="8JG-jt-tXU"/>
+                            <constraint firstItem="itg-NG-zda" firstAttribute="centerY" secondItem="oQV-uQ-16f" secondAttribute="centerY" constant="-20" id="D1O-GH-Cpb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oQV-uQ-16f" secondAttribute="bottom" id="Fvu-y3-wFB"/>
+                            <constraint firstItem="itg-NG-zda" firstAttribute="centerX" secondItem="oQV-uQ-16f" secondAttribute="centerX" id="MYl-Gn-6YG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tM7-uI-A9Y" secondAttribute="bottom" id="PXD-F1-Xf7"/>
                             <constraint firstItem="oQV-uQ-16f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RGy-YP-c9A"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oQV-uQ-16f" secondAttribute="bottom" constant="-34" id="koo-uw-cmA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tM7-uI-A9Y" secondAttribute="trailing" id="RNw-kd-iAT"/>
+                            <constraint firstItem="tM7-uI-A9Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ss7-GW-cwG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oQV-uQ-16f" secondAttribute="trailing" id="qJ2-Se-5JR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="addressLabel" destination="tM7-uI-A9Y" id="vUh-Dn-B40"/>
                         <outlet property="mapView" destination="oQV-uQ-16f" id="HVZ-lu-pbC"/>
                     </connections>
                 </viewController>
@@ -39,4 +66,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pin" width="256" height="256"/>
+    </resources>
 </document>

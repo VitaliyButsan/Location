@@ -13,8 +13,11 @@ import CoreLocation
 class MapScreen: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var addressLabel: UILabel!
+    
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 1_000
+    var previousLocation: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +47,7 @@ class MapScreen: UIViewController {
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
-            mapView.showsUserLocation = true
-            centerViewOnUserLocation()
-            locationManager.startUpdatingLocation()
-            break
+            startTrackingUserLocation()
         case .denied:
             // Show alert instructing them how to turn on permissions
             break
@@ -64,6 +64,20 @@ class MapScreen: UIViewController {
             break
         }
     }
+    
+    func startTrackingUserLocation() {
+        mapView.showsUserLocation = true
+        centerViewOnUserLocation()
+        locationManager.startUpdatingLocation()
+        previousLocation = getCenterLocation(for: mapView)
+    }
+    
+    func getCenterLocation(for mapView: MKMapView) -> CLLocation {
+        let latitude = mapView.centerCoordinate.latitude
+        let longitude = mapView.centerCoordinate.longitude
+        
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
 
 }
 
@@ -71,14 +85,39 @@ class MapScreen: UIViewController {
 
 extension MapScreen: CLLocationManagerDelegate {
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-        mapView.setRegion(region, animated: true)
-    }
-    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuthorization()
+    }
+}
+
+extension MapScreen: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let center = getCenterLocation(for: mapView)
+        let geoCoder = CLGeocoder()
+        
+        guard let previousLocation = self.previousLocation else { return }
+        guard center.distance(from: previousLocation) > 50 else { return }
+        
+        geoCoder.reverseGeocodeLocation(center) { [weak self] (placemark, error) in
+            guard let self = self else { return }
+            
+            if let _ = error {
+                // TODO: Show alert informationg the user
+                return
+            }
+            
+            guard let placemark = placemark?.first else {
+                // TODO: Sow alert informing the user
+                return
+            }
+            
+            let streetNumber = placemark.subThoroughfare ?? "..."
+            let streetName = placemark.thoroughfare ?? "..."
+            
+            DispatchQueue.main.async {
+                self.addressLabel.text = "\(streetNumber) \(streetName)"
+            }
+        }
     }
 }
