@@ -41,6 +41,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqC-pq-U25">
+                                <rect key="frame" x="334" y="733" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sZW-3K-r9R"/>
+                                    <constraint firstAttribute="width" constant="50" id="uDE-pg-ulD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="GO">
+                                    <color key="titleColor" red="0.96072059870000004" green="0.96083182099999997" blue="0.96067064999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A3Q-Aw-LFP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -48,11 +68,14 @@
                             <constraint firstItem="itg-NG-zda" firstAttribute="centerY" secondItem="oQV-uQ-16f" secondAttribute="centerY" constant="-20" id="D1O-GH-Cpb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oQV-uQ-16f" secondAttribute="bottom" id="Fvu-y3-wFB"/>
                             <constraint firstItem="itg-NG-zda" firstAttribute="centerX" secondItem="oQV-uQ-16f" secondAttribute="centerX" id="MYl-Gn-6YG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VqC-pq-U25" secondAttribute="trailing" constant="30" id="Miq-sV-lvd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VqC-pq-U25" secondAttribute="trailing" constant="30" id="PRn-zd-qml"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tM7-uI-A9Y" secondAttribute="bottom" id="PXD-F1-Xf7"/>
                             <constraint firstItem="oQV-uQ-16f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RGy-YP-c9A"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tM7-uI-A9Y" secondAttribute="trailing" id="RNw-kd-iAT"/>
                             <constraint firstItem="tM7-uI-A9Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ss7-GW-cwG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oQV-uQ-16f" secondAttribute="trailing" id="qJ2-Se-5JR"/>
+                            <constraint firstItem="tM7-uI-A9Y" firstAttribute="top" secondItem="VqC-pq-U25" secondAttribute="bottom" constant="30" id="tSt-0E-XEN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
